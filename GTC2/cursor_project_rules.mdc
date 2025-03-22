@@ -1,0 +1,89 @@
+---
+description: Apply these rules when creating the project
+globs:
+alwaysApply: true
+---
+## Project Overview
+
+*   **Type:** SaaS Web Application
+*   **Description:** KPIx is an AI Growth Coach that infuses a Taylor Swift-inspired personality. It is designed to empower early- to mid-stage startup founders and growth leaders with hyper-intentional insights, storytelling-driven analysis, and creative, emotionally intelligent recommendations.
+*   **Primary Goal:** Deliver a unified growth dashboard that aggregates multi-source KPIs, provides role-based personalization, and generates personalized video reports and NLP-driven strategic advice.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+*   **Directory Rules:**
+
+    *   **Next.js 14 (App Router):** Use the `app/[route]/page.tsx` conventions for all routes. This ensures a nested folder structure that supports React Server Components (RSCs) and the new App Router paradigms.
+    *   Example 1: "Next.js 14 (App Router)" → `app/[route]/page.tsx` conventions
+    *   Example 2: "Next.js (Pages Router)" → `pages/[route].tsx` pattern (Not applicable in this project)
+    *   Example 3: "React Router 6" → `src/routes/` with `createBrowserRouter` (Not applicable in this project)
+
+### Core Directories
+
+*   **Versioned Structure:**
+
+    *   **app/api:** Next.js 14 API routes utilizing Route Handlers for server-side logic and integrations (Stripe, Shopify, GA, etc.).
+    *   **app/dashboard:** Contains root layouts and pages for the unified growth dashboard, user authentication, and reporting modules.
+
+### Key Files
+
+*   **Stack-Versioned Patterns:**
+
+    *   **app/dashboard/layout.tsx:** Sets up the root layout for the dashboard and ensures consistency across nested routes in the App Router.
+    *   **app/auth/login/page.tsx:** Implements the OAuth2 authentication flow using Next.js 14 conventions.
+
+## Tech Stack Rules
+
+*   **Version Enforcement:**
+
+    *   **next@14:** Enforce the App Router structure. The use of `app/` directories is required along with support for React Server Components. Avoid legacy patterns such as `getInitialProps`.
+    *   **Node.js & PostgreSQL:** Backend operations must follow asynchronous, promise-based patterns and ensure secure database transactions.
+
+## PRD Compliance
+
+*   **Non-Negotiable:**
+
+    *   "Encryption by Default (TLS 1.2+ and AES-256), Zero Trust Architecture, and Least Privilege Access must be implemented to ensure data security and privacy."
+    *   Role-based access controls and audit trails are mandatory to comply with GDPR, CCPA, and SOC 2 guidelines as outlined in the PRD.
+
+## App Flow Integration
+
+*   **Stack-Aligned Flow:**
+
+    *   Example: "Next.js 14 Auth Flow → `app/auth/login/page.tsx` uses server actions for secure login and session management."
+    *   KPI data flows from integrated sources (Stripe, Shopify, GA, etc.) are processed and funneled into the unified dashboard with corresponding API routes in the `app/api` directory.
+    *   Role-based views in the dashboard render data uniquely for Founders, Collaborators, Investors, and Data Analysts.
+
+## Best Practices
+
+*   **Next.js (App Router):**
+
+    *   Use nested directories under `app/` to logically separate features (e.g., authentication, dashboard, reporting).
+    *   Leverage React Server Components (RSCs) to improve performance and streamline data fetching.
+    *   Maintain clear separation of concerns between UI components and server-side logic.
+
+*   **Node.js & PostgreSQL:**
+
+    *   Ensure asynchronous operations are properly handled with error management and logging.
+    *   Optimize database queries and use parameterized queries to prevent SQL injection.
+    *   Follow security best practices by encrypting sensitive data and enforcing strict access controls.
+
+*   **AWS S3 Integrations:**
+
+    *   Use secure buckets and enforce SSL/TLS for data transfers.
+    *   Implement lifecycle rules and backup strategies for robust data management.
+
+*   **General Practices for Integrations (Stripe, Shopify, GA, OAuth2, etc.):**
+
+    *   Ensure third-party integrations are managed via secure API calls and proper error handling.
+    *   Validate all external data and maintain comprehensive logging for auditing purposes.
+    *   Use HTTPS and Oauth2 protocols to ensure secure data exchanges.
+
+## Rules
+
+*   Derive folder/file patterns directly from the tech stack documentation versions. For instance, use the `app/` directory for Next.js 14.
+*   If Next.js 14 App Router is used: Enforce the `app/` directory with nested route folders and avoid mixing with legacy `pages/` structures.
+*   Do not mix version patterns; maintain consistency by following strict directory conventions as per the defined tech stack rules.
+*   Always align API endpoints, user authentication, and routing flows with the latest best practices specified in the project guidelines.

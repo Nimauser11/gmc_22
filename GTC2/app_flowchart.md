@@ -1,0 +1,12 @@
+flowchart TD
+    A[User Login] --> B[Authentication and Role Check]
+    B --> C[Unified Growth Dashboard]
+    C --> D[Data Integration from Stripe, Shopify, GA4, LinkedIn etc.]
+    D --> E[Data Security and Privacy Implementation]
+    E --> F[NLP Query Processing using Langtrace]
+    F --> G[Generate Narrative Insights]
+    G --> H[Automated Video Reporting via OpenHands]
+    H --> I[Competitor Intelligence by Apify]
+    I --> J[Notifications Delivery (Email, Slack, InApp, Video)]
+    J --> K[Audit Trails and Data Storage]
+    K --> L[Data Driven Decision Making]
